@@ -18,17 +18,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { BellRing, Check } from "lucide-react"
-
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-
-import { Switch } from "@/components/ui/switch"
-
-import { Search } from "lucide-react";
 import { Clock } from "lucide-react";
 import { ScrollText } from 'lucide-react';
 import { ChartColumn } from 'lucide-react';
+
+import { Bell } from "lucide-react"
+import { MessageSquare } from "lucide-react"
 
 
 
@@ -50,7 +45,7 @@ const notifications = [
   export default function Homepage(){
     return(
         <>
-            <div className="flex w-full min-h-screen">
+        <div className="flex w-full min-h-screen">
         <SidebarProvider>
           <AppSidebar />
           <main className="flex-1">
@@ -58,7 +53,7 @@ const notifications = [
               <SidebarTrigger />
               <Input type="text" placeholder="Search..." />
               <DropdownMenu>
-                <DropdownMenuTrigger>Not</DropdownMenuTrigger>
+                <DropdownMenuTrigger><Bell/></DropdownMenuTrigger>
                 <DropdownMenuContent>
                   <Card >
                     <CardHeader>
@@ -107,7 +102,7 @@ const notifications = [
                 </DropdownMenuContent>
               </DropdownMenu>
               <DropdownMenu>
-                <DropdownMenuTrigger>Mes</DropdownMenuTrigger>
+                <DropdownMenuTrigger><MessageSquare/></DropdownMenuTrigger>
                 <DropdownMenuContent>
                   <Card >
                     <CardHeader>
@@ -163,7 +158,7 @@ const notifications = [
                 <AvatarImage src="https://github.com/shadcn.png" />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
-            </div>
+            </div>            
             <div className="grid grid-cols-3 gap-5 m-5 ">
               <Card className="col-span-3">
                 <CardHeader>
@@ -216,7 +211,7 @@ const notifications = [
                   </Card>
                 </CardContent>
                 <CardFooter>
-                  <p>Card Footer</p>
+                  {/* <p>Card Footer</p> */}
                 </CardFooter>
               </Card>
               <Card>
@@ -244,7 +239,7 @@ const notifications = [
                   </Card>
                 </CardContent>
                 <CardFooter>
-                  <p>Card Footer</p>
+                  {/* <p>Card Footer</p> */}
                 </CardFooter>
               </Card>
               <Card>
@@ -256,19 +251,19 @@ const notifications = [
                   <Card>
                     <CardHeader className="grid grid-cols-2">
                       <CardTitle>Mathematics</CardTitle>
-                      <CardDescription>85%</CardDescription>
+                      <CardDescription className="justify-self-end">85%</CardDescription>
                     </CardHeader>
                   </Card>
                   <Card>
                     <CardHeader className="grid grid-cols-2">
                       <CardTitle>Physics</CardTitle>
-                      <CardDescription>75%</CardDescription>
+                      <CardDescription className="justify-self-end">75%</CardDescription>
                     </CardHeader>
                   </Card>
                   <Card>
                     <CardHeader className="grid grid-cols-2">
                       <CardTitle>Chemistry</CardTitle>
-                      <CardDescription>55%</CardDescription>
+                      <CardDescription className="justify-self-end">55%</CardDescription>
                     </CardHeader>
                   </Card>
                   <Card>
@@ -281,14 +276,14 @@ const notifications = [
                   </Card>
                 </CardContent>
                 <CardFooter>
-                  <p>Card Footer</p>
+                  {/* <p>Card Footer</p> */}
                 </CardFooter>
               </Card>
 
             </div>
           </main>
-        </SidebarProvider>
-        </div>
+          </SidebarProvider>
+          </div>
         </>
     )
   }
