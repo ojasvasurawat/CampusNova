@@ -1,4 +1,4 @@
-import { Calendar, Settings, Bell, MessageSquare, BookOpen, Folder, Award, ChartNoAxesColumnIncreasing, Video} from "lucide-react"
+import { Calendar, Settings, Bell, MessageSquare, BookOpen, Folder, Award, ChartNoAxesColumnIncreasing, Video, User, LogOut } from "lucide-react"
 
 import {
   Sidebar,
@@ -10,7 +10,19 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarMenuBadge,
+  SidebarFooter,
+  SidebarHeader,
 } from "@/components/ui/sidebar"
+
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+
 
 // Menu items.
 const items = [
@@ -51,15 +63,36 @@ const items = [
     notification: null,
   },
   {
-    title: "My Attendence",
-    url: "#",
+    title: "My Attendance",
+    url: "/my-attendance",
     icon: ChartNoAxesColumnIncreasing,
     notification: null,
   },
   {
     title: "Classes",
-    url: "#",
+    url: "/classes",
     icon: Video,
+    notification: null,
+  },
+]
+
+const footerItems =[
+  {
+    title: "Profile",
+    url: "/profile",
+    icon: User,
+    notification: null,
+  },
+  {
+    title: "Settings",
+    url: "/settings",
+    icon: Settings ,
+    notification: null,
+  },
+  {
+    title: "Logout",
+    url: "/auth/login",
+    icon: LogOut ,
     notification: null,
   },
 ]
@@ -67,9 +100,17 @@ const items = [
 export function AppSidebar() {
   return (
     <Sidebar>
+      <SidebarHeader>
+        <div className="text-2xl font-bold mx-2 mt-3">
+        <a href="/homepage"> CampusNova</a>
+        </div>
+        <div className="mx-2">
+          <div className="text-lg">Jhon Doe</div>
+          <div className="font-thin">Student</div>
+        </div>
+      </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel><a href="/homepage">Application</a> </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
@@ -87,6 +128,19 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+      <SidebarFooter>
+        {footerItems.map((item) => (
+          <SidebarMenuItem key={item.title}>
+            <SidebarMenuButton asChild>
+              <a href={item.url}>
+                <item.icon />
+                <span>{item.title}</span>
+              </a>
+            </SidebarMenuButton>
+            <SidebarMenuBadge>{item.notification}</SidebarMenuBadge>
+          </SidebarMenuItem>
+        ))}
+      </SidebarFooter>  
     </Sidebar>
   )
 }

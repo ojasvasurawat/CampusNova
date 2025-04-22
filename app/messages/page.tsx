@@ -157,7 +157,7 @@ const notifications = [
               </Avatar>
             </div>
             <div className="grid grid-cols-2 m-5">
-                <div className="flex m-5 text-2xl font-bold">
+                <div className="flex mx-5 text-2xl font-bold items-center gap-3 justify-start">
                 <MessageSquare/> 
                 <span>Messages</span>
                 </div>

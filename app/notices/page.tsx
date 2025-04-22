@@ -156,7 +156,7 @@ const notifications = [
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
             </div>
-            <div className="flex m-5 text-2xl font-bold">
+            <div className="flex m-5 text-2xl font-bold items-center gap-3 justify-start">
                 <Bell/> 
                 <span>Notices & Announcements</span>
             </div>

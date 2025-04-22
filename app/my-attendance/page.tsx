@@ -18,7 +18,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { BookOpen } from "lucide-react"
+import { ChartNoAxesColumnIncreasing } from "lucide-react"
 import { Progress } from "@/components/ui/progress"
 
 import { Bell } from "lucide-react"
@@ -41,7 +41,7 @@ const notifications = [
     },
   ]
 
-  export default function Subjects(){
+  export default function MyAttendance(){
     return(
         <>
             <div className="flex w-full min-h-screen">
@@ -159,8 +159,8 @@ const notifications = [
               </Avatar>
             </div>
             <div className="flex m-5 text-2xl font-bold items-center gap-3 justify-start">
-                <BookOpen/> 
-                <span>My Sybjects</span>
+                <ChartNoAxesColumnIncreasing/> 
+                <span>My Attendance</span>
             </div>
             <div className="grid grid-cols-3 gap-5 m-5">
               <Card>
@@ -170,10 +170,10 @@ const notifications = [
                 </CardHeader>
                 <CardContent >
                   <div className="grid grid-cols-2 m-3">   
-                    <div>Course Progress</div>
-                    <div className="justify-self-end">95%</div>  
+                    <div>Attendance</div>
+                    <div className="justify-self-end">45%</div>  
                   </div>
-                  <Progress value={95} />
+                  <Progress value={45} />
                 </CardContent>
                 <CardFooter className="grid grid-rows-2">
                   <div>Next Class</div>
@@ -187,10 +187,10 @@ const notifications = [
                 </CardHeader>
                 <CardContent >
                   <div className="grid grid-cols-2 m-3">   
-                    <div>Course Progress</div>
-                    <div className="justify-self-end">70%</div>  
+                    <div>Attendance</div>
+                    <div className="justify-self-end">65%</div>  
                   </div>  
-                  <Progress value={70} />
+                  <Progress value={65} />
                 </CardContent>
                 <CardFooter className="grid grid-rows-2">
                   <div>Next Class</div>
@@ -204,10 +204,10 @@ const notifications = [
                 </CardHeader>
                 <CardContent >
                   <div className="grid grid-cols-2 m-3">   
-                    <div>Course Progress</div>
-                    <div className="justify-self-end">85%</div>  
+                    <div>Attendance</div>
+                    <div className="justify-self-end">70%</div>  
                   </div>
-                  <Progress value={85} />
+                  <Progress value={70} />
                 </CardContent>
                 <CardFooter className="grid grid-rows-2">
                   <div>Next Class</div>  
