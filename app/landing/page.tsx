@@ -30,9 +30,9 @@ export default function Landing(){
                 </div>
 
                 <div className="hidden lg:flex lg:items-center lg:justify-center lg:space-x-10">
-                    <a href="#" title="" className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"> Login </a>
+                    <a href="/auth/login" title="" className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"> Login </a>
                     <a
-                        href="#"
+                        href="/auth/signup"
                         title=""
                         className="px-5 py-2 text-base font-semibold leading-7 text-gray-900 transition-all duration-200 bg-transparent border border-gray-900 rounded-xl font-pj focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 hover:bg-gray-900 hover:text-white focus:bg-gray-900 focus:text-white"
                         role="button"
@@ -54,7 +54,7 @@ export default function Landing(){
 
                 <div className="relative inline-flex mt-10 group ">
                     <div className="absolute transition-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg  group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"></div>
-                    <a href="#" title="" className="relative inline-flex items-center justify-center border border-2 border-gray-900  px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl  hover:text-black hover:bg-gray-50  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900" role="button">
+                    <a href="/auth/signup" title="" className="relative inline-flex items-center justify-center border border-2 border-gray-900  px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl  hover:text-black hover:bg-gray-50  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900" role="button">
                     Get access to your personalized dashboard
                     </a>
                 </div>
@@ -197,7 +197,7 @@ export default function Landing(){
       </p>
 
       <a
-        href="#"
+        href="/auth/signup"
         title=""
         className="inline-flex items-center justify-center px-4 py-4 mt-8 font-semibold text-white transition-all duration-200 bg-gray-700 border border-transparent rounded-md lg:mt-12 hover:bg-gray-900 focus:bg-gray-900"
         role="button"
