@@ -57,5 +57,16 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module"
+  "type": "module",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sarvashreshth-Programmers/CampusNova.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Sarvashreshth-Programmers/CampusNova/issues"
+  },
+  "homepage": "https://github.com/Sarvashreshth-Programmers/CampusNova#readme"
 }
