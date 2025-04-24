@@ -71,7 +71,7 @@ const items = [
   },
   {
     title: "Attendance",
-    url: "/faculty/attendance",
+    url: "/faculty/my-attendance",
     icon: ChartNoAxesColumnIncreasing,
     notification: null,
   },
@@ -113,7 +113,7 @@ export function AppSidebar() {
         </div>
         <div className="mx-2">
           <div className="text-lg">Jhon Doe</div>
-          <div className="font-thin">Student</div>
+          <div className="font-thin">Faculty</div>
         </div>
       </SidebarHeader>
       <SidebarContent>
