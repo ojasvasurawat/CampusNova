@@ -2,6 +2,10 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar-faculty"
 import { Input } from "@/components/ui/input"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+
+import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog"
+
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -23,9 +27,10 @@ import { FileText } from 'lucide-react';
 import { Video } from 'lucide-react';
 import { Button } from "@/components/ui/button"
 import { Download } from 'lucide-react';
-
+import { Upload } from 'lucide-react';
 import { Bell } from "lucide-react"
 import { MessageSquare } from "lucide-react"
+import ResourcesUploadContent from "./resources-overlay.tsx/page"
 
 
 
@@ -164,6 +169,17 @@ const notifications = [
             <div className="flex m-5 text-2xl font-bold items-center gap-3 justify-start">
                 <Folder/> 
                 <span>Learning  Resources</span>
+                <div className="place-items-end">
+                <Dialog>
+                            <DialogTrigger asChild>
+                            <Button className=""> <Upload/> Upload</Button>
+                            </DialogTrigger>
+                      
+                            <DialogContent className="sm:max-w-md">
+                              <ResourcesUploadContent />
+                            </DialogContent>
+                          </Dialog>
+                          </div>
             </div>
             <div className="grid grid-cols-1 gap-5 m-5">
               <Card>
