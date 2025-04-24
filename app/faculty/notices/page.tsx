@@ -1,3 +1,6 @@
+"use client"
+
+import { useState, useEffect } from "react"
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar-faculty"
 import { Input } from "@/components/ui/input"
@@ -21,6 +24,10 @@ import {
 
 import { Bell } from "lucide-react"
 import { MessageSquare } from "lucide-react"
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@radix-ui/react-dialog"
+import NoticeForm from "./notice-overlay/page"
+import NoticeBox from "./notice-box/page"
+import ProfileFormContent from "../profile/profile-overlay.tsx/page"
 
 
 
@@ -40,9 +47,24 @@ const notifications = [
   ]
 
   export default function Notices(){
+    const [notices, setNotices] = useState<{ id: string; title: string; desc: string; audience:string; date: string }[]>([])
+
+    useEffect(() => {
+      const fetchNotices = async () => {
+        const response = await fetch("/api/v1/notices")
+        if (!response.ok) {
+          throw new Error("Failed to fetch notices")
+        }
+        const data = await response.json()
+        setNotices(data)
+      }
+      fetchNotices()
+    }, [])
+ 
     return(
         <>
             <div className="flex w-full min-h-screen">
+            <Dialog>
         <SidebarProvider>
           <AppSidebar />
           <main className="flex-1">
@@ -57,6 +79,8 @@ const notifications = [
                       <CardTitle>Notifications</CardTitle>
                       <CardDescription>You have 3 unread messages.</CardDescription>
                     </CardHeader>
+                    
+
                     <CardContent className="grid gap-4">
                       {/* <div className=" flex items-center space-x-4 rounded-md border p-4">
                         <BellRing />
@@ -156,51 +180,43 @@ const notifications = [
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
             </div>
-            <div className="flex m-5 text-2xl font-bold items-center gap-3 justify-start">
+
+            <div className="flex m-5 text-2xl font-bold items-center gap-3 justify-between">
+              <div className="flex m-5 text-2xl font-bold items-center gap-3 justify-start">
                 <Bell/> 
                 <span>Notices & Announcements</span>
+              </div>
+              
+                <DialogTrigger asChild>
+                  <button><NoticeBox/></button>
+                </DialogTrigger>
+                
+              
             </div>
-            <div className="grid grid-cols-1 gap-5 m-5">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-xl font-bold">Imoprtant Exam Schedule</CardTitle>
-                  <CardDescription>Friday, April 18, 2025</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p>You have 2 classes scheduled today. Don't Forget to check your notification for recent updates.</p>
-                </CardContent>
-                {/* <CardFooter>
-                  <p>Card Footer</p>
-                </CardFooter> */}
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-xl font-bold">Good Morning, Jhon Doe Student!</CardTitle>
-                  <CardDescription>Friday, April 18, 2025</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p>You have 2 classes scheduled today. Don't Forget to check your notification for recent updates.</p>
-                </CardContent>
-                {/* <CardFooter>
-                  <p>Card Footer</p>
-                </CardFooter> */}
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-xl font-bold">Good Morning, Jhon Doe Student!</CardTitle>
-                  <CardDescription>Friday, April 18, 2025</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p>You have 2 classes scheduled today. Don't Forget to check your notification for recent updates.</p>
-                </CardContent>
-                {/* <CardFooter>
-                  <p>Card Footer</p>
-                </CardFooter> */}
-              </Card>  
 
+            
+              <DialogContent className=" max-w-screen mx-15">
+                <NoticeForm />
+              </DialogContent>
+    
+
+
+            <div className="grid grid-cols-1 gap-5 m-5">
+              {notices.map((notice) => (
+                <Card key={notice.id} className="w-full">
+                  <CardHeader>
+                    <CardTitle>{notice.title}</CardTitle>
+                    <CardDescription>{notice.desc}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p>{notice.date}</p>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </main>
         </SidebarProvider>
+        </Dialog>
         </div>
         </>
     )

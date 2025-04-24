@@ -2,6 +2,7 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar-student"
 import { Input } from "@/components/ui/input"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { useState, useEffect } from "react"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -40,6 +41,19 @@ const notifications = [
   ]
 
   export default function Notices(){
+        const [notices, setNotices] = useState<{ id: string; title: string; desc: string; audience:string; date: string }[]>([])
+    
+        useEffect(() => {
+          const fetchNotices = async () => {
+            const response = await fetch("/api/v1/notices")
+            if (!response.ok) {
+              throw new Error("Failed to fetch notices")
+            }
+            const data = await response.json()
+            setNotices(data)
+          }
+          fetchNotices()
+        }, [])
     return(
         <>
             <div className="flex w-full min-h-screen">

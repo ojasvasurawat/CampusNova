@@ -64,13 +64,13 @@ const items = [
     notification: null,
   },
   {
-    title: "Achivements",
-    url: "/faculty/achivements",
+    title: "Placement Offers",
+    url: "/faculty/placement",
     icon: Award,
     notification: null,
   },
   {
-    title: "My Attendance",
+    title: "Attendance",
     url: "/faculty/attendance",
     icon: ChartNoAxesColumnIncreasing,
     notification: null,
@@ -86,13 +86,13 @@ const items = [
 const footerItems =[
   {
     title: "Profile",
-    url: "/student/profile",
+    url: "/faculty/profile",
     icon: User,
     notification: null,
   },
   {
     title: "Settings",
-    url: "/student/settings",
+    url: "/faculty/settings",
     icon: Settings ,
     notification: null,
   },

@@ -64,8 +64,8 @@ const items = [
     notification: null,
   },
   {
-    title: "Achivements",
-    url: "/student/achivements",
+    title: "Placement Offers",
+    url: "/student/placement",
     icon: Award,
     notification: null,
   },
