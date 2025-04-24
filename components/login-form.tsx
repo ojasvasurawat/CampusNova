@@ -1,3 +1,4 @@
+'use client'
 import { cn } from "@/lib/utils"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button"
@@ -10,11 +11,50 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { Router } from "lucide-react";
+import React from "react";
+// import { useState, FormEvent } from 'react';
 
 export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
+
+
+  // const [isLoading, setIsLoading] = useState<boolean>(false)
+  // const [error, setError] = useState<string | null>(null)
+
+  // async function onSubmit(event: FormEvent<HTMLFormElement>) {
+
+  //   event.preventDefault()
+  //   setIsLoading(true)
+  //   setError(null) // Clear previous errors when a new request starts
+
+  //   try{
+  //     const formData = new FormData(event.currentTarget)
+  //     const response = await fetch('/api/v1/users/route', {
+  //       method: 'POST',
+  //       body: formData,
+  //     })
+
+  //     if (!response.ok) {
+  //       throw new Error('Failed to submit the data. Please try again.')
+  //     }
+ 
+  //     // Handle response if necessary
+  //     const data = await response.json()
+  //     // ...
+  //   }catch (error) {
+  //     // Capture the error message to display to the user
+  //     // setError(error.message)
+  //     console.error(error)
+  //   } finally {
+  //     setIsLoading(false)
+  //   }
+  // }
+
+
+
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card>
@@ -34,7 +74,7 @@ export function LoginForm({
 
         <TabsContent value="student">
         <CardContent>
-          <form>
+          <form >
             <div className="flex flex-col gap-6">
               <div className="grid gap-3">
                 <Label htmlFor="enrolment">Enrolment</Label>
@@ -78,7 +118,7 @@ export function LoginForm({
 
         <TabsContent value="faculty">
         <CardContent>
-          <form>
+          <form >
             <div className="flex flex-col gap-6">
               <div className="grid gap-3">
                 <Label htmlFor="facultyenrol">Faculty Number</Label>
