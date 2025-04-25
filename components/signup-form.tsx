@@ -1,4 +1,3 @@
-
 'use client'
 import { cn } from "@/lib/utils"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -29,10 +28,22 @@ export function SignupForm({
     courseName: '',
     yearOfAdmission: ''
   });
+  const [teacherData, setTeacherData] = useState({
+    facultyNumber: '',
+    password: '',
+    collegeId: ''
+  });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleTeacherChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    setTeacherData({
+      ...teacherData,
       [e.target.name]: e.target.value,
     });
   };
@@ -68,6 +79,39 @@ export function SignupForm({
       setIsLoading(false)
     }
   }
+
+  async function onTeacherSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    setIsLoading(true)
+    setError(null)
+
+    try {
+      const response = await fetch('/api/v1/faculty', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(teacherData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error?.[0]?.message || 'Signup failed.');
+      }
+
+      const data = await response.json()
+      alert(data.message); // Optional: replace with toast later
+      console.log(data)
+      
+    } catch (error: any) {
+      console.error(error)
+      setError(error.message)
+    } finally {
+      redirect('/auth/login')
+      setIsLoading(false)
+    }
+  }
+
 
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
@@ -186,29 +230,48 @@ export function SignupForm({
 
           <TabsContent value="faculty">
           <CardContent>
-           <form >
+           <form onSubmit={onTeacherSubmit}>
              <div className="flex flex-col gap-6">
                <div className="grid gap-3">
                  <Label htmlFor="facultyenrol">Faculty Number</Label>
-                 <Input
-                  id="faculyenrol"
-                  type="text"
-                  placeholder="Faculty Number"
-                  required
-                />
+                  <Input
+                    id="facultyNumber"
+                    name="facultyNumber"
+                    type="text"
+                    placeholder="Faculty Number"
+                    value={teacherData.facultyNumber}
+                    onChange={handleTeacherChange}
+                    required
+                  />
               </div>
               <div className="grid gap-3">
                 <div className="flex items-center">
                   <Label htmlFor="password">Password</Label>
                 </div>
-                <Input id="password" type="password" placeholder=" Enter Password" required />
+                <Input 
+                  id="password"
+                  name="password" 
+                  type="password" 
+                  placeholder="Password" 
+                  value={teacherData.password}
+                  onChange={handleTeacherChange}
+                  required 
+                />
               </div>
 
               <div className="grid gap-3">
                 <div className="flex items-center">
                   <Label htmlFor="college">CollegeID</Label>
                 </div>
-                <Input id="college" type="text" placeholder="CollegeID" required />
+                <Input
+                  id="collegeId"
+                  name="collegeId"
+                  type="text"
+                  placeholder="College ID"
+                  value={teacherData.collegeId}
+                  onChange={handleTeacherChange}
+                  required
+                />
               </div>
 
 
