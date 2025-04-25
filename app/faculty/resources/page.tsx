@@ -63,7 +63,7 @@ export default function Resources() {
                   <DialogTrigger asChild>
                     <Button className=""> <Upload /> Upload</Button>
                   </DialogTrigger>
-
+          
                   <DialogContent className="sm:max-w-md">
                     <ResourcesUploadContent />
                   </DialogContent>
