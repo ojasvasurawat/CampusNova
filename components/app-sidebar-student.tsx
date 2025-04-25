@@ -104,7 +104,7 @@ const footerItems =[
   },
 ]
 
-export function AppSidebar() {
+export function AppSidebarStudent() {
   return (
     <Sidebar>
       <SidebarHeader>

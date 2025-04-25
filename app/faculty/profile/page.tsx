@@ -3,7 +3,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog"
 
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
-import { AppSidebar } from "@/components/app-sidebar-faculty"
+import { AppSidebarFaculty } from "@/components/app-sidebar-faculty"
 import { Input } from "@/components/ui/input"
 import {
   DropdownMenu,
@@ -48,7 +48,7 @@ export default function DashboardGrid() {
 
     <div className="flex w-full min-h-screen">
       <SidebarProvider>
-        <AppSidebar />
+        <AppSidebarFaculty />
         <main className="flex-1">
           <AppTopbar />
           <div className="p-6 space-y-6">

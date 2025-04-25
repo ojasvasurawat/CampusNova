@@ -1,5 +1,5 @@
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
-import { AppSidebar } from "@/components/app-sidebar-student"
+import { AppSidebarFaculty } from "@/components/app-sidebar-faculty"
 import { Input } from "@/components/ui/input"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
@@ -47,7 +47,7 @@ const notifications = [
         <>
             <div className="flex w-full min-h-screen">
         <SidebarProvider>
-          <AppSidebar />
+          <AppSidebarFaculty />
           <main className="flex-1">
             <AppTopbar />
             <div className="flex m-5 text-2xl font-bold items-center gap-3 justify-start">

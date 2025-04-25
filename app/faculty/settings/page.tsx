@@ -5,7 +5,7 @@ import { Globe, Settings } from "lucide-react"
 
 
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
-import { AppSidebar } from "@/components/app-sidebar-faculty"
+import { AppSidebarFaculty } from "@/components/app-sidebar-faculty"
 import { Input } from "@/components/ui/input"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
@@ -64,7 +64,7 @@ export default function SettingsPage() {
     
     <div className="flex w-full min-h-screen">
         <SidebarProvider>
-          <AppSidebar />
+          <AppSidebarFaculty />
           <main className="flex-1">
             <AppTopbar />
 

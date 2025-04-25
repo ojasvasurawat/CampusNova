@@ -1,5 +1,7 @@
+"use client"
+
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
-import { AppSidebar } from "@/components/app-sidebar-faculty"
+import {  AppSidebarFaculty } from "@/components/app-sidebar-faculty"
 import { Input } from "@/components/ui/input"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
@@ -24,7 +26,8 @@ import { MessageSquare } from "lucide-react"
 
 import AppTopbar from "@/components/topbar"
 import { Button } from "@/components/ui/button"
-
+import { useState } from "react"
+import ChatOverlay from "./dms/page"
 
 const notifications = [
     {
@@ -42,11 +45,12 @@ const notifications = [
   ]
 
   export default function Messages(){
+    const [showChat, setShowChat] = useState(false);
     return(
         <>
         <div className="flex w-full min-h-screen">
         <SidebarProvider>
-          <AppSidebar />
+          <AppSidebarFaculty />
           <main className="flex-1">
             <AppTopbar />
             <div className="grid grid-cols-2 m-5">
@@ -74,15 +78,44 @@ const notifications = [
                             </Avatar>
                             <span>Jhon Smith
                             <CardDescription>
-                              <p>Regarding the assignment submittion...</p>
+                              <p>Regarding the assignment submission...</p>
                               <p className="mt-1">10:30</p>
                               </CardDescription>
                             </span>
                           </CardTitle>
                       </CardHeader>
                       <CardContent className="content-center justify-self-end">
+                        <ChatOverlay>
                        <Button variant="outline" className="w-24 bg-black text-white pointer hover:bg-gray-800 hover:text-white">Reply</Button>
-                      </CardContent>
+                       </ChatOverlay>
+                    </CardContent>
+                    </Card>
+
+                    
+
+
+                    
+
+
+                    <Card className="grid grid-cols-2">
+                      <CardHeader>
+                          <CardTitle className="flex gap-4">
+                            <Avatar>
+                              <AvatarImage src="https://github.com/shadcn.png" />
+                              <AvatarFallback>CN</AvatarFallback>
+                            </Avatar>
+                            <span>Jhon Smith
+                            <CardDescription><p>Regarding the assignment submission...</p>
+                            <p>08:30</p>
+                            </CardDescription>
+                            </span>
+                          </CardTitle>
+                      </CardHeader>
+                      <CardContent className="content-center justify-self-end">
+                        <ChatOverlay>
+                       <Button variant="outline" className="w-24 bg-black text-white pointer hover:bg-gray-800 hover:text-white">Reply</Button>
+                       </ChatOverlay>
+                    </CardContent>
                     </Card>
 
 
@@ -94,42 +127,21 @@ const notifications = [
                               <AvatarFallback>CN</AvatarFallback>
                             </Avatar>
                             <span>Jhon Smith
-                            <CardDescription>Regarding the assignment submittion...</CardDescription>
+                            <CardDescription><p>Regarding the assignment submission...</p>
+                            <p>08:30</p>
+                            </CardDescription>
                             </span>
                           </CardTitle>
                       </CardHeader>
                       <CardContent className="content-center justify-self-end">
-                        10:30 AM
-                      </CardContent>
-                      {/* <CardFooter>
-                        <p>Card Footer</p>
-                      </CardFooter> */}
-                    </Card>
-                    <Card className="grid grid-cols-2">
-                      <CardHeader>
-                          <CardTitle className="flex gap-4">
-                            <Avatar>
-                              <AvatarImage src="https://github.com/shadcn.png" />
-                              <AvatarFallback>CN</AvatarFallback>
-                            </Avatar>
-                            <span>Jhon Smith
-                            <CardDescription>Regarding the assignment submittion...</CardDescription>
-                            </span>
-                          </CardTitle>
-                      </CardHeader>
-                      <CardContent className="content-center justify-self-end">
-                        Yesterday
-                      </CardContent>
-                      {/* <CardFooter>
-                        <p>Card Footer</p>
-                      </CardFooter> */}
+                        <ChatOverlay>
+                       <Button variant="outline" className="w-24 bg-black text-white pointer hover:bg-gray-800 hover:text-white">Reply</Button>
+                       </ChatOverlay>
+                    </CardContent>
                     </Card>
 
 
                 </CardContent>
-                {/* <CardFooter>
-                  <p>Card Footer</p>
-                </CardFooter> */}
               </Card>
              
 

@@ -1,5 +1,5 @@
 import { SidebarProvider } from "@/components/ui/sidebar"
-import { AppSidebar } from "@/components/app-sidebar-student"
+import { AppSidebarStudent } from "@/components/app-sidebar-student"
 
 import {
   Card,
@@ -23,7 +23,7 @@ import AppTopbar from "@/components/topbar";
         <>
         <div className="flex w-full min-h-screen">
         <SidebarProvider>
-          <AppSidebar />
+          <AppSidebarStudent />
           <main className="flex-1">
             <AppTopbar />
                         
