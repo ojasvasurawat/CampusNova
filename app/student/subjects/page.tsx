@@ -54,7 +54,7 @@ const notifications = [
                 <BookOpen/> 
                 <span>My Sybjects</span>
             </div>
-            <div className="grid grid-cols-3 gap-5 m-5">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 m-5">
               <Card>
                 <CardHeader>
                   <CardTitle className="text-xl font-bold">Mathematics</CardTitle>

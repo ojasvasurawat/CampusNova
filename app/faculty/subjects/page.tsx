@@ -33,161 +33,161 @@ import { Button } from "@/components/ui/button"
 import AppTopbar from "@/components/topbar"
 
 const notifications = [
-    {
-      title: "Your call has been confirmed.",
-      description: "1 hour ago",
-    },
-    {
-      title: "You have a new message!",
-      description: "1 hour ago",
-    },
-    {
-      title: "Your subscription is expiring soon!",
-      description: "2 hours ago",
-    },
-  ]
+  {
+    title: "Your call has been confirmed.",
+    description: "1 hour ago",
+  },
+  {
+    title: "You have a new message!",
+    description: "1 hour ago",
+  },
+  {
+    title: "Your subscription is expiring soon!",
+    description: "2 hours ago",
+  },
+]
 
-  export default function Subjects(){
-    return(
-        <>
-            <div className="flex w-full min-h-screen">
+export default function Subjects() {
+  return (
+    <>
+      <div className="flex w-full min-h-screen">
         <SidebarProvider>
           <AppSidebarFaculty />
           <main className="flex-1">
-           <AppTopbar />
+            <AppTopbar />
             <div className="flex m-5 text-2xl font-bold items-center gap-3 justify-start">
-                <BookOpen/> 
-                <span>My Sybjects</span>
+              <BookOpen />
+              <span>My Sybjects</span>
             </div>
             <div className="grid grid-cols-1 gap-5 m-5">
 
 
-              <div className="grid grid-cols-2 gap-5 m-5">
-              <div className="col-span-2 text-2xl font-bold">Sem-2</div>
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-xl font-bold">Physics</CardTitle>
-                </CardHeader>
-                <CardContent >
-                  <div className="grid grid-cols-2 m-3">   
-                    <div>Course Progress</div>
-                    <div className="justify-self-end">70%</div>  
-                  </div>  
-                  <Progress value={70} />
-                </CardContent>
-                <CardFooter className="grid grid-cols-2">
-                  <div >
-                  <div>Next Class</div>
-                  <p>Today, 02:00 PM</p>
-                  </div>
-                  <div className="justify-self-end">
-                  <Dialog>
-                    <DialogTrigger asChild>
-                      <Button>Update Progress</Button>
-                    </DialogTrigger>
-                    <DialogContent className="sm:max-w-md">
-                      <CourseProgress />
-                    </DialogContent>
-                  </Dialog>
-                  </div>
-                </CardFooter>
-              </Card>
+              <div className="lg:grid lg:grid-cols-2 gap-5 m-5">
+                <div className="col-span-2 text-2xl font-bold">Sem-2</div>
+                <Card className="m-2">
+                  <CardHeader>
+                    <CardTitle className="text-xl font-bold">Physics</CardTitle>
+                  </CardHeader>
+                  <CardContent >
+                    <div className="grid grid-cols-2 m-3">
+                      <div>Course Progress</div>
+                      <div className="justify-self-end">70%</div>
+                    </div>
+                    <Progress value={70} />
+                  </CardContent>
+                  <CardFooter className="grid grid-cols-2">
+                    <div >
+                      <div>Next Class</div>
+                      <p>Today, 02:00 PM</p>
+                    </div>
+                    <div className="justify-self-end">
+                      <Dialog>
+                        <DialogTrigger asChild>
+                          <Button>Update Progress</Button>
+                        </DialogTrigger>
+                        <DialogContent className="sm:max-w-md">
+                          <CourseProgress />
+                        </DialogContent>
+                      </Dialog>
+                    </div>
+                  </CardFooter>
+                </Card>
 
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-xl font-bold">Computer Science</CardTitle>
-                </CardHeader>
-                <CardContent >
-                  <div className="grid grid-cols-2 m-3">   
-                    <div>Course Progress</div>
-                    <div className="justify-self-end">95%</div>  
-                  </div>
-                  <Progress value={95} />
-                </CardContent>
-                <CardFooter className="grid grid-cols-2">
-                  <div >
-                  <div>Next Class</div>
-                  <p>Today, 09:00 AM</p>
-                  </div>
-                  <div className="justify-self-end">
-                  <Dialog>
-                    <DialogTrigger asChild>
-                      <Button>Update Progress</Button>
-                    </DialogTrigger>
-                    <DialogContent className="sm:max-w-md">
-                      <CourseProgress />
-                    </DialogContent>
-                  </Dialog>
-                  </div>
-                </CardFooter>
-              </Card>
+                <Card className="m-2">
+                  <CardHeader>
+                    <CardTitle className="text-xl font-bold">Computer Science</CardTitle>
+                  </CardHeader>
+                  <CardContent >
+                    <div className="grid grid-cols-2 m-3">
+                      <div>Course Progress</div>
+                      <div className="justify-self-end">95%</div>
+                    </div>
+                    <Progress value={95} />
+                  </CardContent>
+                  <CardFooter className="grid grid-cols-2">
+                    <div >
+                      <div>Next Class</div>
+                      <p>Today, 09:00 AM</p>
+                    </div>
+                    <div className="justify-self-end">
+                      <Dialog>
+                        <DialogTrigger asChild>
+                          <Button>Update Progress</Button>
+                        </DialogTrigger>
+                        <DialogContent className="sm:max-w-md">
+                          <CourseProgress />
+                        </DialogContent>
+                      </Dialog>
+                    </div>
+                  </CardFooter>
+                </Card>
               </div>
 
-              <div className="grid grid-cols-2 gap-5 m-5">
-              <div className="col-span-2 text-2xl font-bold">Sem-4</div>
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-xl font-bold">Mathematics</CardTitle>
-                </CardHeader>
-                <CardContent >
-                  <div className="grid grid-cols-2 m-3">   
-                    <div>Course Progress</div>
-                    <div className="justify-self-end">60%</div>  
-                  </div>  
-                  <Progress value={60} />
-                </CardContent>
-                <CardFooter className="grid grid-cols-2">
-                  <div >
-                  <div>Next Class</div>
-                  <p>Today, 03:00 PM</p>
-                  </div>
-                  <div className="justify-self-end">
-                  <Dialog>
-                    <DialogTrigger asChild>
-                      <Button>Update Progress</Button>
-                    </DialogTrigger>
-                    <DialogContent className="sm:max-w-md">
-                      <CourseProgress />
-                    </DialogContent>
-                  </Dialog>
-                  </div>
-                </CardFooter>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-xl font-bold">Computer Science</CardTitle>
-                </CardHeader>
-                <CardContent >
-                  <div className="grid grid-cols-2 m-3">   
-                    <div>Course Progress</div>
-                    <div className="justify-self-end">85%</div>  
-                  </div>
-                  <Progress value={85} />
-                </CardContent>
-                <CardFooter className="grid grid-cols-2">
-                  <div >
-                  <div>Next Class</div>
-                  <p>Today, 11:00 AM</p>
-                  </div>
-                  <div className="justify-self-end">
-                  <Dialog>
-                    <DialogTrigger asChild>
-                      <Button>Update Progress</Button>
-                    </DialogTrigger>
-                    <DialogContent className="sm:max-w-md">
-                      <CourseProgress />
-                    </DialogContent>
-                  </Dialog>
-                  </div>
-                </CardFooter>
-              </Card>
+              <div className="lg:grid lg:grid-cols-2 gap-5 m-5">
+                <div className="col-span-2 text-2xl font-bold">Sem-4</div>
+                <Card className="m-2">
+                  <CardHeader>
+                    <CardTitle className="text-xl font-bold">Mathematics</CardTitle>
+                  </CardHeader>
+                  <CardContent >
+                    <div className="grid grid-cols-2 m-3">
+                      <div>Course Progress</div>
+                      <div className="justify-self-end">60%</div>
+                    </div>
+                    <Progress value={60} />
+                  </CardContent>
+                  <CardFooter className="grid grid-cols-2">
+                    <div >
+                      <div>Next Class</div>
+                      <p>Today, 03:00 PM</p>
+                    </div>
+                    <div className="justify-self-end">
+                      <Dialog>
+                        <DialogTrigger asChild>
+                          <Button>Update Progress</Button>
+                        </DialogTrigger>
+                        <DialogContent className="sm:max-w-md">
+                          <CourseProgress />
+                        </DialogContent>
+                      </Dialog>
+                    </div>
+                  </CardFooter>
+                </Card>
+                <Card className="m-2">
+                  <CardHeader>
+                    <CardTitle className="text-xl font-bold">Computer Science</CardTitle>
+                  </CardHeader>
+                  <CardContent >
+                    <div className="grid grid-cols-2 m-3">
+                      <div>Course Progress</div>
+                      <div className="justify-self-end">85%</div>
+                    </div>
+                    <Progress value={85} />
+                  </CardContent>
+                  <CardFooter className="grid grid-cols-2">
+                    <div >
+                      <div>Next Class</div>
+                      <p>Today, 11:00 AM</p>
+                    </div>
+                    <div className="justify-self-end">
+                      <Dialog>
+                        <DialogTrigger asChild>
+                          <Button>Update Progress</Button>
+                        </DialogTrigger>
+                        <DialogContent className="sm:max-w-md">
+                          <CourseProgress />
+                        </DialogContent>
+                      </Dialog>
+                    </div>
+                  </CardFooter>
+                </Card>
               </div>
-             
+
 
             </div>
           </main>
         </SidebarProvider>
-        </div>
-        </>
-    )
-  }
+      </div>
+    </>
+  )
+}
