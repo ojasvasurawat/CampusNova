@@ -63,12 +63,12 @@ const items = [
     icon: Folder,
     notification: null,
   },
-  {
-    title: "Placement Offers",
-    url: "/faculty/placement",
-    icon: Award,
-    notification: null,
-  },
+  // {
+  //   title: "Placement Offers",
+  //   url: "/faculty/placement",
+  //   icon: Award,
+  //   notification: null,
+  // },
   {
     title: "Attendance",
     url: "/faculty/my-attendance",
