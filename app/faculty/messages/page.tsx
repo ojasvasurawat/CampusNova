@@ -1,51 +1,25 @@
 "use client"
 
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
+import { SidebarProvider } from "@/components/ui/sidebar"
 import {  AppSidebarFaculty } from "@/components/app-sidebar-faculty"
 import { Input } from "@/components/ui/input"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+
 import {
   Card,
-  CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
 
-import { Bell } from "lucide-react"
 import { MessageSquare } from "lucide-react"
 
 import AppTopbar from "@/components/topbar"
-import { Button } from "@/components/ui/button"
-import { useState } from "react"
-import ChatOverlay from "./dms/page"
 
-const notifications = [
-    {
-      title: "Your call has been confirmed.",
-      description: "1 hour ago",
-    },
-    {
-      title: "You have a new message!",
-      description: "1 hour ago",
-    },
-    {
-      title: "Your subscription is expiring soon!",
-      description: "2 hours ago",
-    },
-  ]
+
+
 
   export default function Messages(){
-    const [showChat, setShowChat] = useState(false);
+
     return(
         <>
         <div className="flex w-full min-h-screen">
@@ -63,87 +37,21 @@ const notifications = [
             <div className="grid grid-cols-1 gap-5 m-5">
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-xl font-bold">Recent Messages</CardTitle>
-                  <CardDescription></CardDescription>
+                  <CardTitle className="text-xl font-bold">Join a room to Start Chatting</CardTitle>
+                  <CardDescription>
+                    Join a room using room code to start chatting with your friends.
+                  </CardDescription>
                 </CardHeader>
-                <CardContent className="grid grid-cols-1 gap-5">
-                
-                        
-                    <Card className="grid grid-cols-2">
-                      <CardHeader>
-                          <CardTitle className="flex gap-4">
-                            <Avatar>
-                              <AvatarImage src="https://github.com/shadcn.png" />
-                              <AvatarFallback>CN</AvatarFallback>
-                            </Avatar>
-                            <span>Jhon Smith
-                            <CardDescription>
-                              <p>Regarding the assignment submission...</p>
-                              <p className="mt-1">10:30</p>
-                              </CardDescription>
-                            </span>
-                          </CardTitle>
-                      </CardHeader>
-                      <CardContent className="content-center justify-self-end">
-                        <ChatOverlay>
-                       <Button variant="outline" className="w-24 bg-black text-white pointer hover:bg-gray-800 hover:text-white">Reply</Button>
-                       </ChatOverlay>
-                    </CardContent>
-                    </Card>
-
-                    
-
-
-                    
-
-
-                    <Card className="grid grid-cols-2">
-                      <CardHeader>
-                          <CardTitle className="flex gap-4">
-                            <Avatar>
-                              <AvatarImage src="https://github.com/shadcn.png" />
-                              <AvatarFallback>CN</AvatarFallback>
-                            </Avatar>
-                            <span>Jhon Smith
-                            <CardDescription><p>Regarding the assignment submission...</p>
-                            <p>08:30</p>
-                            </CardDescription>
-                            </span>
-                          </CardTitle>
-                      </CardHeader>
-                      <CardContent className="content-center justify-self-end">
-                        <ChatOverlay>
-                       <Button variant="outline" className="w-24 bg-black text-white pointer hover:bg-gray-800 hover:text-white">Reply</Button>
-                       </ChatOverlay>
-                    </CardContent>
-                    </Card>
-
-
-                    <Card className="grid grid-cols-2">
-                      <CardHeader>
-                          <CardTitle className="flex gap-4">
-                            <Avatar>
-                              <AvatarImage src="https://github.com/shadcn.png" />
-                              <AvatarFallback>CN</AvatarFallback>
-                            </Avatar>
-                            <span>Jhon Smith
-                            <CardDescription><p>Regarding the assignment submission...</p>
-                            <p>08:30</p>
-                            </CardDescription>
-                            </span>
-                          </CardTitle>
-                      </CardHeader>
-                      <CardContent className="content-center justify-self-end">
-                        <ChatOverlay>
-                       <Button variant="outline" className="w-24 bg-black text-white pointer hover:bg-gray-800 hover:text-white">Reply</Button>
-                       </ChatOverlay>
-                    </CardContent>
-                    </Card>
-
-
-                </CardContent>
               </Card>
-             
+
+              <div className="flex items-center justify-center h-100">
+  <a href="https://chat-app-frontend-psi-six.vercel.app" className="p-4 bg-black text-white rounded-xl flex items-center justify-center transition-all duration-300 hover:bg-white hover:text-black hover:border hover:border-black hover:border-2 cursor-pointer">
+    
+      Join a room
+
+  </a>
+</div>
+
 
             </div>
           </main>
