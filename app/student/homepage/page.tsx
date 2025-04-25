@@ -27,8 +27,8 @@ import AppTopbar from "@/components/topbar";
           <main className="flex-1">
             <AppTopbar />
                         
-            <div className="grid grid-cols-3 gap-5 m-5 ">
-              <Card className="col-span-3">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 m-5 ">
+              <Card className="col-span-1 lg:col-span-3">
                 <CardHeader>
                   <CardTitle>Good Morning, Jhon Doe Student!</CardTitle>
                   <CardDescription>Friday, April 18, 2025</CardDescription>

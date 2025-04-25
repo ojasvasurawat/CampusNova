@@ -65,7 +65,7 @@ export default function Classes() {
             </div>
             <div className="grid grid-cols-1 gap-5 m-5">
 
-              <div className="grid grid-cols-2 gap-5 m-5">
+              <div className="grid lg:grid-cols-2 gap-5 m-5">
                 <div className=" text-2xl font-bold">Sem-2</div>
                 <div className="justify-self-end">
                   <Dialog>
@@ -118,7 +118,7 @@ export default function Classes() {
               </div>
 
 
-              <div className="grid grid-cols-2 gap-5 m-5">
+              <div className="grid lg:grid-cols-2 gap-5 m-5">
                 <div className=" text-2xl font-bold">Sem-4</div>
                 <div className="justify-self-end">
                   <Dialog>
