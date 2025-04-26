@@ -1,3 +1,4 @@
+"use client"
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import {  AppSidebarStudent } from "@/components/app-sidebar-student"
 import { Input } from "@/components/ui/input"
@@ -27,26 +28,51 @@ import { School } from 'lucide-react';
 import { Bell } from "lucide-react"
 import { MessageSquare } from "lucide-react"
 import AppTopbar from "@/components/topbar"
+import { useEffect, useState } from "react"
+import { toast } from "sonner"
+
+type ClassItem = {
+  _id: string
+  subjectName: string
+  topicName?: string
+  startTime?: string
+  endTime?: string
+  type?: string
+  link?: string
+}
+
+export default function Classes() {
+  const [classes, setClasses] = useState<ClassItem[]>([])
+
+  const fetchClasses = async () => {
+    try {
+      const res = await fetch("/api/v1/faculty/classes/data")
+      const result = await res.json()
+
+      console.log("Fetched classes:", result)
+
+      if (Array.isArray(result.data)) {
+        setClasses(result.data)
+      } else {
+        toast.error("Failed to load classes: Invalid data format")
+      }
+    } catch (error) {
+      console.error("Failed to fetch classes", error)
+      toast.error("Could not load classes")
+    }
+  }
+
+  useEffect(() => {
+    fetchClasses()
+  }, [])
+
+  
 
 
 
 
-const notifications = [
-    {
-      title: "Your call has been confirmed.",
-      description: "1 hour ago",
-    },
-    {
-      title: "You have a new message!",
-      description: "1 hour ago",
-    },
-    {
-      title: "Your subscription is expiring soon!",
-      description: "2 hours ago",
-    },
-  ]
 
-  export default function Classes(){
+
     return(
         <>
             <div className="flex w-full min-h-screen">
@@ -59,66 +85,53 @@ const notifications = [
                 <span>Today's Classes</span>
             </div>
             <div className="grid grid-cols-1 gap-5 m-5">
-              <Card>
-                <CardHeader className="grid grid-cols-2 mx-2">
-                  <div className="flex">  
-                    <School />
-                    <CardTitle className="text-xl font-bold">Differential equation </CardTitle>
-                  </div>  
-                  <Button className="justify-self-end">Mathematics</Button>
-                </CardHeader>
-                <CardContent className="grid grid-cols-2 mx-2">
-                  <div>
-                    <div>Start: 09:00 AM</div>
-                    <div>End: 10:00 AM</div>
-                  </div>
-                  <Button className="justify-self-end">Offline</Button>
-                </CardContent>
-                {/* <CardFooter>
-                  <p>Card Footer</p>
-                </CardFooter> */}
-              </Card>
-              <Card>
-                <CardHeader className="grid grid-cols-2 mx-2">
-                  <div className="flex">  
-                    <School />
-                    <CardTitle className="text-xl font-bold">Quantum mechanics</CardTitle>
-                  </div>  
-                  <Button className="justify-self-end">Physics</Button>
-                </CardHeader>
-                <CardContent className="grid grid-cols-2 mx-2">
-                  <div>
-                    <div>Start: 10:30 AM</div>
-                    <div>End: 11:30 AM</div>
-                  </div>
-                  <Button className="justify-self-end"> Offline</Button>
-                </CardContent>
-                {/* <CardFooter>
-                  <p>Card Footer</p>
-                </CardFooter> */}
-              </Card>
-              <Card>
-                <CardHeader className="grid grid-cols-2 mx-2">
-                  <div className="flex">  
-                    <Video />
-                    <CardTitle className="text-xl font-bold"> Data Structures and Algorithms</CardTitle>
-                  </div>  
-                  <Button className="justify-self-end">Computer Science</Button>
-                </CardHeader>
-                <CardContent className="grid grid-cols-2 mx-2">
-                  <div>
-                    <div>Start: 01:00 PM</div>
-                    <div>End: 02:00 PM</div>
-                  </div>
-                  <Button className="justify-self-end"> Online</Button>
-                </CardContent>
-                {/* <CardFooter>
-                  <p>Card Footer</p>
-                </CardFooter> */}
-              </Card>
-              
-
-            </div>
+            {Array.isArray(classes) && classes.length > 0 ? (
+              classes.map((cls) => (
+                <Card key={cls._id}>
+                  <CardHeader className="grid grid-cols-2 mx-2">
+                    <div className="flex items-center gap-3 justify-start">
+                      {cls.type === "online" ? <Video /> : <School />}
+                      <CardTitle className="text-xl font-bold">
+                        {cls.topicName || "No Topic"}
+                      </CardTitle>
+                    </div>
+                    <Button className="justify-self-end">{cls.subjectName}</Button>
+                  </CardHeader>
+                  <CardContent className="grid grid-cols-2 mx-2">
+                    <div className="flex flex-col">
+                      <div>
+                        <strong>Start:</strong>{" "}
+                        {cls.startTime
+                          ? new Date(cls.startTime).toLocaleString()
+                          : "N/A"}
+                      </div>
+                      <div>
+                        <strong>End:</strong>{" "}
+                        {cls.endTime
+                          ? new Date(cls.endTime).toLocaleString()
+                          : "N/A"}
+                      </div>
+                    </div>
+                    <div className="flex flex-col items-end">
+                      <Button variant="outline" size="sm">{cls.type}</Button>
+                      {cls.type === "online" && cls.link && (
+                        <a
+                          href={cls.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-2 text-blue-600 text-sm underline"
+                        >
+                          Join Link
+                        </a>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))
+            ) : (
+              <p>No classes available</p>
+            )}
+          </div>
           </main>
         </SidebarProvider>
         </div>
