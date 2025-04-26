@@ -1,3 +1,4 @@
+"use client"
 import { Pencil, Calendar, Award } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog"
@@ -27,23 +28,21 @@ import { MessageSquare } from "lucide-react"
 import ProfileFormContent from "./profile-overlay.tsx/page"
 
 import AppTopbar from "@/components/topbar"
+import { useState } from "react"
 
-const notifications = [
-  {
-    title: "Your call has been confirmed.",
-    description: "1 hour ago",
-  },
-  {
-    title: "You have a new message!",
-    description: "1 hour ago",
-  },
-  {
-    title: "Your subscription is expiring soon!",
-    description: "2 hours ago",
-  },
-]
+
+type Notice = {
+  _id: string;
+  title: string;
+  description: string;
+  audience: string;
+  createdAt: string;
+}
 
 export default function DashboardGrid() {
+
+  const [notices, setNotices] = useState<Notice[]>([])
+  const [loading, setLoading] = useState(true)
   return (
 
     <div className="flex w-full min-h-screen">
@@ -74,14 +73,7 @@ export default function DashboardGrid() {
                   </Dialog>
                 </div>
                 <div className="grid grid-cols-3 mt-10">
-                  <div>
-                    <p className="text-gray-500">Course</p>
-                    <p className="font-semibold">M.Tech IT</p>
-                  </div>
-                  <div>
-                    <p className="text-gray-500">Year</p>
-                    <p className="font-semibold">3rd Year</p>
-                  </div>
+                  
                   <div>
                     <p className="text-gray-500">Enrollment</p>
                     <p className="font-semibold">2021CS1234</p>
@@ -91,12 +83,12 @@ export default function DashboardGrid() {
 
               {/* Card 2 - 1/3 width */}
               <div className="md:w-1/3 bg-white shadow rounded-lg p-6">
-                <p className="text-gray-500">Attendance</p>
+                {/* <p className="text-gray-500">Attendance</p>
                 <p className="text-xl font-bold">85%</p>
                 <p className="text-gray-500 mt-4">CGPA</p>
                 <p className="text-xl font-bold">8.5</p>
                 <p className="text-gray-500 mt-4">Subjects</p>
-                <p className="text-xl font-bold">6</p>
+                <p className="text-xl font-bold">6</p> */}
               </div>
             </div>
 
@@ -121,14 +113,27 @@ export default function DashboardGrid() {
                   <Calendar />
                   <h2 className="ml-2 text-lg font-semibold">Upcoming Events</h2>
                 </div>
-                <div className="bg-purple-100 p-4 rounded mb-3">
-                  <p className="font-medium">Mid-Term Exam</p>
-                  <p className="text-sm text-gray-600">March 25, 2024</p>
-                </div>
-                <div className="bg-purple-100 p-4 rounded">
-                  <p className="font-medium">Project Submission</p>
-                  <p className="text-sm text-gray-600">April 1, 2024</p>
-                </div>
+                {loading ? (
+                  <p>Loading...</p>
+                ) : notices.length === 0 ? (
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>No notices yet</CardTitle>
+                      <CardDescription>All notices will appear here.</CardDescription>
+                    </CardHeader>
+                  </Card>
+                ) : (
+                  notices.map((notice) => (
+                    <Card key={notice._id} className="mx-5">
+                      <CardHeader>
+                        <CardTitle>{notice.title}</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p>{notice.description}</p>
+                      </CardContent>
+                    </Card>
+                  ))
+                )}
               </div>
             </div>
           </div>

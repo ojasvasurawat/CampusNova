@@ -208,9 +208,6 @@ export function SignupForm({
                     <Button type="submit" className="w-full" disabled={isLoading}>
                       {isLoading ? "Signing Up..." : "Sign Up"}
                     </Button>
-                    <Button variant="outline" className="w-full">
-                      Sign Up with Google
-                    </Button>
                   </div>
 
                   {error && (
@@ -278,9 +275,6 @@ export function SignupForm({
               <div className="flex flex-col gap-3">
                 <Button type="submit" className="w-full">
                   SignUp
-                </Button>
-                <Button variant="outline" className="w-full">
-                  SignUp with Google
                 </Button>
               </div>
             </div>
