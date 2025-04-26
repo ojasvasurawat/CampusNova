@@ -43,7 +43,7 @@ const items = [
     title: "Notices",
     url: "/faculty/notices",
     icon: Bell,
-    notification: 3,
+    notification: null,
   },
   {
     title: "Messages",
