@@ -30,6 +30,8 @@ const SubjectSchema = new mongoose.Schema(
 );
 
 
+
+
 // 👇 Prevent OverwriteModelError
 export const Student =
   mongoose.models.Student || mongoose.model("Student", StudentSchema);
