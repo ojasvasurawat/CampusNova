@@ -14,15 +14,7 @@ import {
   SidebarHeader,
 } from "@/components/ui/sidebar"
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-
+import { useState } from "react"
 
 
 // Menu items.
@@ -43,13 +35,13 @@ const items = [
     title: "Notices",
     url: "/student/notices",
     icon: Bell,
-    notification: 3,
+    notification: null,
   },
   {
     title: "Messages",
     url: "/student/messages",
     icon: MessageSquare,
-    notification: 4,
+    notification: null,
   },
   {
     title: "Subjects",
@@ -69,12 +61,12 @@ const items = [
   //   icon: Award,
   //   notification: null,
   // },
-  {
-    title: "My Attendance",
-    url: "/student/my-attendance",
-    icon: ChartNoAxesColumnIncreasing,
-    notification: null,
-  },
+  // {
+  //   title: "My Attendance",
+  //   url: "/student/my-attendance",
+  //   icon: ChartNoAxesColumnIncreasing,
+  //   notification: null,
+  // },
   {
     title: "Classes",
     url: "/student/classes",
@@ -104,7 +96,13 @@ const footerItems =[
   },
 ]
 
+
+
 export function AppSidebarStudent() {
+
+
+
+ 
   return (
     <Sidebar>
       <SidebarHeader>
