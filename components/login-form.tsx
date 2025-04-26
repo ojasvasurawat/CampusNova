@@ -169,9 +169,6 @@ export function LoginForm({
                     <Button type="submit" className="w-full" disabled={isLoading}>
                       {isLoading ? "Logging In..." : "Log In"}
                     </Button>
-                    <Button variant="outline" className="w-full">
-                      Log In with Google
-                    </Button>
                   </div>
                 </div>
                 <div className="mt-4 text-center text-sm">
@@ -220,9 +217,6 @@ export function LoginForm({
                   <div className="flex flex-col gap-3">
                     <Button type="submit" className="w-full">
                       Login
-                    </Button>
-                    <Button variant="outline" className="w-full">
-                      Login with Google
                     </Button>
                   </div>
                 </div>
