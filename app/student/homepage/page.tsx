@@ -147,7 +147,7 @@ const today = new Date();
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 m-5 ">
               <Card className="col-span-1 lg:col-span-3">
                 <CardHeader>
-                  <CardTitle>Good Morning, Jhon Doe Student!</CardTitle>
+                  <CardTitle>Hello, Jhon Doe Student!</CardTitle>
                   <CardDescription>{today.toLocaleDateString('en-US', {
                     weekday: 'long',  // Day of the week
                     year: 'numeric',  // Year in numeric format
