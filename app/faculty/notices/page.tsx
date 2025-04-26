@@ -9,7 +9,7 @@ import NoticeForm from "./notice-overlay/page"
 import NoticeBox from "./notice-box/page"
 import AppTopbar from "@/components/topbar"
 import {
-  Card, CardContent, CardDescription,
+  Card, CardContent,
   CardHeader, CardTitle
 } from "@/components/ui/card"
 

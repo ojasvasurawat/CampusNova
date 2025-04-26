@@ -1,37 +1,21 @@
 "use client"
 
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
+import { SidebarProvider } from "@/components/ui/sidebar"
 import { AppSidebarFaculty } from "@/components/app-sidebar-faculty"
-import { Input } from "@/components/ui/input"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { Folder, Plus } from "lucide-react";
-import { FileText } from 'lucide-react';
-import { Video } from 'lucide-react';
+import { Folder } from "lucide-react";
 import { Button } from "@/components/ui/button"
 import { Download } from 'lucide-react';
 import { Upload } from 'lucide-react';
-import { Bell } from "lucide-react"
-import { MessageSquare } from "lucide-react"
 import ResourcesUploadContent from "./resources-overlay.tsx/page"
 
 import AppTopbar from "@/components/topbar"
-import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@radix-ui/react-dialog"
+import { Dialog, DialogContent, DialogTrigger } from "@radix-ui/react-dialog"
 import { useEffect, useState } from "react"
 
 

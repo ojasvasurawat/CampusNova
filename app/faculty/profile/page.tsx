@@ -4,26 +4,6 @@ import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog"
 
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebarFaculty } from "@/components/app-sidebar-faculty"
-import { Input } from "@/components/ui/input"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-
-import { Bell } from "lucide-react"
-import { MessageSquare } from "lucide-react"
 import ProfileFormContent from "./profile-overlay.tsx/page"
 
 import AppTopbar from "@/components/topbar"

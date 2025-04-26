@@ -1,32 +1,15 @@
 "use client"
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
+import { SidebarProvider } from "@/components/ui/sidebar"
 import {  AppSidebarStudent } from "@/components/app-sidebar-student"
-import { Input } from "@/components/ui/input"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
 import { Video } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Download } from 'lucide-react';
 import { School } from 'lucide-react';
-
-
-import { Bell } from "lucide-react"
-import { MessageSquare } from "lucide-react"
 import AppTopbar from "@/components/topbar"
 import { useEffect, useState } from "react"
 import { toast } from "sonner"

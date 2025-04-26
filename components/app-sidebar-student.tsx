@@ -1,11 +1,10 @@
-import {Home, Calendar, Settings, Bell, MessageSquare, BookOpen, Folder, Award, ChartNoAxesColumnIncreasing, Video, User, LogOut } from "lucide-react"
+import {Home, Calendar, Settings, Bell, MessageSquare, BookOpen, Folder,  Video, User, LogOut } from "lucide-react"
 
 import {
   Sidebar,
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,

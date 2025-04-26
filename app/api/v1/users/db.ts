@@ -1,6 +1,5 @@
 
 import mongoose from "mongoose";
-import { date, number } from "zod";
 
 const StudentSchema = new mongoose.Schema({
   enrollmentNumber: { type: String, required: true, unique: true },
