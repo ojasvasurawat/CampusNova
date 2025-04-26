@@ -1,3 +1,5 @@
+"use client"
+
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebarFaculty } from "@/components/app-sidebar-faculty"
 import { Input } from "@/components/ui/input"
@@ -30,24 +32,28 @@ import ResourcesUploadContent from "./resources-overlay.tsx/page"
 
 import AppTopbar from "@/components/topbar"
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@radix-ui/react-dialog"
+import { useEffect, useState } from "react"
 
 
-const notifications = [
-  {
-    title: "Your call has been confirmed.",
-    description: "1 hour ago",
-  },
-  {
-    title: "You have a new message!",
-    description: "1 hour ago",
-  },
-  {
-    title: "Your subscription is expiring soon!",
-    description: "2 hours ago",
-  },
-]
+
 
 export default function Resources() {
+  const [resources, setResources] = useState<any[]>([])
+
+  const fetchResources = async () => {
+    const res = await fetch("/api/v1/resources",{
+      method: "GET"
+    })
+    const data = await res.json()
+    setResources(data)
+  }
+
+  useEffect(() => {
+    fetchResources()
+  }, [])
+
+
+
   return (
     <>
       <div className="flex w-full min-h-screen">
@@ -65,72 +71,34 @@ export default function Resources() {
                   </DialogTrigger>
           
                   <DialogContent className="sm:max-w-md">
-                    <ResourcesUploadContent />
+                    <ResourcesUploadContent onUploadSuccess={fetchResources} />
                   </DialogContent>
                 </Dialog>
               </div>
             </div>
-            <div className="grid grid-cols-1 gap-5 m-5">
-              <Card>
-                <CardHeader className="grid grid-cols-2 mx-2">
-                  <div className="flex">
-                    <FileText />
-                    <CardTitle className="text-xl font-bold">Mathematics Formulae Sheet</CardTitle>
-                  </div>
-                  <Button className="justify-self-end">Mathematics</Button>
-                </CardHeader>
-                <CardContent className="grid grid-cols-2 mx-2">
-                  <div>
-                    <div>Size: 2.5 MB</div>
-                    <div>Added: 2024-04-15</div>
-                  </div>
-                  <Button className="justify-self-end"> <Download /> Download</Button>
-                </CardContent>
-                {/* <CardFooter>
-                  <p>Card Footer</p>
-                </CardFooter> */}
-              </Card>
-              <Card>
-                <CardHeader className="grid grid-cols-2 mx-2">
-                  <div className="flex">
-                    <Video />
-                    <CardTitle className="text-xl font-bold">Physics Lab Video</CardTitle>
-                  </div>
-                  <Button className="justify-self-end">Physics</Button>
-                </CardHeader>
-                <CardContent className="grid grid-cols-2 mx-2">
-                  <div>
-                    <div>Size: 45 MB</div>
-                    <div>Added: 2024-04-14</div>
-                  </div>
-                  <Button className="justify-self-end"> <Download /> Download</Button>
-                </CardContent>
-                {/* <CardFooter>
-                  <p>Card Footer</p>
-                </CardFooter> */}
-              </Card>
-              <Card>
-                <CardHeader className="grid grid-cols-2 mx-2">
-                  <div className="flex">
-                    <Video />
-                    <CardTitle className="text-xl font-bold">Programming Guidelines</CardTitle>
-                  </div>
-                  <Button className="justify-self-end">Computer Science</Button>
-                </CardHeader>
-                <CardContent className="grid grid-cols-2 mx-2">
-                  <div>
-                    <div>Size: 1.5 MB</div>
-                    <div>Added: 2024-04-13</div>
-                  </div>
-                  <Button className="justify-self-end"> <Download /> Download</Button>
-                </CardContent>
-                {/* <CardFooter>
-                  <p>Card Footer</p>
-                </CardFooter> */}
-              </Card>
 
 
-            </div>
+        <div className="grid gap-4">
+        {resources.map((resource) => (
+          <Card key={resource._id}>
+            <CardHeader>
+              <CardTitle>{resource.title}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p>{resource.description}</p>
+              <p>Uploaded: {new Date(resource.createdAt).toLocaleDateString()}</p>
+              <a
+                href={resource.fileUrl}
+                download
+                className="inline-flex items-center mt-2 text-blue-600 hover:underline"
+              >
+                <Download className="w-4 h-4 mr-2" /> Download
+              </a>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+
           </main>
         </SidebarProvider>
       </div>

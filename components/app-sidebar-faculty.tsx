@@ -49,7 +49,7 @@ const items = [
     title: "Messages",
     url: "/faculty/messages",
     icon: MessageSquare,
-    notification: 4,
+    notification: null,
   },
   {
     title: "Subjects",
@@ -69,12 +69,12 @@ const items = [
   //   icon: Award,
   //   notification: null,
   // },
-  {
-    title: "Attendance",
-    url: "/faculty/my-attendance",
-    icon: ChartNoAxesColumnIncreasing,
-    notification: null,
-  },
+  // {
+  //   title: "Attendance",
+  //   url: "/faculty/my-attendance",
+  //   icon: ChartNoAxesColumnIncreasing,
+  //   notification: null,
+  // },
   {
     title: "Classes",
     url: "/faculty/classes",
