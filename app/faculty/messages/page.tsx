@@ -45,7 +45,7 @@ import AppTopbar from "@/components/topbar"
               </Card>
 
               <div className="flex items-center justify-center h-100">
-  <a href="https://chat-app-frontend-psi-six.vercel.app" className="p-4 bg-black text-white rounded-xl flex items-center justify-center transition-all duration-300 hover:bg-white hover:text-black hover:border hover:border-black hover:border-2 cursor-pointer">
+  <a href="https://chat-app-frontend-git-main-anshsaxena6265-gmailcoms-projects.vercel.app" className="p-4 bg-black text-white rounded-xl flex items-center justify-center transition-all duration-300 hover:bg-white hover:text-black hover:border hover:border-black hover:border-2 cursor-pointer">
     
       Join a room
 
